@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سياسة الخصوصية — Azima</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark:  #003B02;
+      --green-main:  #116430;
+      --green-light: #e8f5ec;
+      --cream:       #F5F0E8;
+      --text-dark:   #0d2010;
+      --text-mid:    #2d5c38;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* HEADER */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,240,232,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17,100,48,0.1);
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-logo {
+      font-size: 20px; font-weight: 900; color: var(--green-dark);
+      text-decoration: none;
+    }
+    .header-logo span { color: var(--green-main); }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white; border: 1.5px solid rgba(17,100,48,0.2);
+      border-radius: 100px; padding: 7px 16px;
+      font-family: 'Tajawal', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--green-dark); cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .back-btn:hover { background: var(--green-dark); color: var(--cream); }
+    .lang-btn {
+      background: white; border: 1.5px solid rgba(17,100,48,0.2);
+      border-radius: 100px; padding: 7px 16px;
+      font-family: 'Tajawal', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--green-dark); cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: var(--green-dark); color: var(--cream); }
+
+    /* MAIN */
+    .container {
+      position: relative; z-index: 1;
+      max-width: 780px; margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    .page-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-light); color: var(--green-main);
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 900;
+      color: var(--green-dark); margin-bottom: 12px; line-height: 1.2;
+    }
+    html[lang="en"] .page-title { font-family: 'Playfair Display', serif; }
+
+    .page-date {
+      font-size: 13px; color: #999; margin-bottom: 48px;
+    }
+
+    .intro {
+      background: white; border: 1.5px solid rgba(17,100,48,0.1);
+      border-radius: 16px; padding: 24px;
+      font-size: 15px; line-height: 1.8; color: var(--text-mid);
+      margin-bottom: 40px;
+      border-right: 4px solid var(--green-main);
+    }
+    html[lang="en"] .intro { border-right: none; border-left: 4px solid var(--green-main); }
+
+    .section { margin-bottom: 36px; }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-num {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--green-dark); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 18px; font-weight: 800; color: var(--green-dark);
+    }
+    .section-body {
+      background: white; border: 1.5px solid rgba(17,100,48,0.08);
+      border-radius: 14px; padding: 20px 24px;
+    }
+    .section-body p {
+      font-size: 14px; line-height: 1.8; color: var(--text-mid); margin-bottom: 12px;
+    }
+    .section-body p:last-child { margin-bottom: 0; }
+    .section-body ul {
+      list-style: none; padding: 0;
+    }
+    .section-body ul li {
+      font-size: 14px; line-height: 1.8; color: var(--text-mid);
+      padding: 6px 0; border-bottom: 1px solid rgba(17,100,48,0.06);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .section-body ul li:last-child { border-bottom: none; }
+    .section-body ul li::before {
+      content: '✦'; color: var(--green-main); font-size: 10px; margin-top: 5px; flex-shrink: 0;
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex; gap: 4px;
+      background: white; border: 1.5px solid rgba(17,100,48,0.1);
+      border-radius: 14px; padding: 6px;
+      margin-bottom: 40px; width: fit-content;
+    }
+    .tab {
+      padding: 8px 20px; border-radius: 10px; border: none;
+      font-family: 'Tajawal', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; background: transparent; color: #999;
+    }
+    .tab.active { background: var(--green-dark); color: var(--cream); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    footer {
+      position: relative; z-index: 1; text-align: center;
+      padding: 32px 24px 40px; border-top: 1px solid rgba(17,100,48,0.1);
+      font-size: 13px; color: #999;
+    }
+    footer strong { color: var(--green-main); }
+    footer a { color: var(--green-main); text-decoration: none; }
+
+    .fading { opacity: 0; transition: opacity 0.2s; }
+
+    @media (max-width: 480px) {
+      .container { padding: 40px 16px 80px; }
+      .header { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/" class="header-logo">Azima <span>عزيمة</span></a>
+  <div class="header-right">
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN 🌐</button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="container">
+
+  <div class="page-badge" id="badge">🔒 &nbsp;الخصوصية والقانونية</div>
+  <h1 class="page-title" id="pageTitle">سياسة الخصوصية والشروط</h1>
+  <p class="page-date" id="pageDate">آخر تحديث: مارس 2025</p>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabsContainer">
+    <button class="tab active" onclick="showTab('privacy')" id="tab-privacy">سياسة الخصوصية</button>
+    <button class="tab" onclick="showTab('terms')" id="tab-terms">الشروط والأحكام</button>
+    <button class="tab" onclick="showTab('about')" id="tab-about">حول التطبيق</button>
+  </div>
+
+  <!-- ══ سياسة الخصوصية ══ -->
+  <div class="tab-content active" id="content-privacy">
+
+    <div class="intro" id="privacy-intro">
+      تصف سياسة الخصوصية هذه كيفية جمع تطبيق عزيمة للمعلومات الشخصية واستخدامها وحمايتها عند استخدامك للتطبيق.
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">١</div>
+        <div class="section-title" id="p1t">المعلومات التي نجمعها</div>
+      </div>
+      <div class="section-body">
+        <ul id="p1list">
+          <li>الاسم الكامل وعنوان البريد الإلكتروني</li>
+          <li>كلمة المرور (مشفّرة ولا يمكن لأحد الاطلاع عليها)</li>
+          <li>صورة الملف الشخصي (اختياري)</li>
+          <li>الموقع الجغرافي (اختياري)</li>
+          <li>الاهتمامات والتخصصات المهنية</li>
+          <li>المشاريع والأفكار التي تنشرها على المنصة</li>
+          <li>المحادثات داخل غرف النقاش</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٢</div>
+        <div class="section-title" id="p2t">كيف نستخدم معلوماتك</div>
+      </div>
+      <div class="section-body">
+        <ul id="p2list">
+          <li>إنشاء حسابك وتخصيص تجربتك على المنصة</li>
+          <li>عرض مشاريعك للمستخدمين المهتمين</li>
+          <li>تمكين التواصل بين أصحاب المشاريع والشركاء والمستثمرين</li>
+          <li>إرسال إشعارات تخص نشاطك على المنصة</li>
+          <li>تحسين خدماتنا وتطوير التطبيق</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٣</div>
+        <div class="section-title" id="p3t">مشاركة المعلومات</div>
+      </div>
+      <div class="section-body">
+        <p id="p3intro">نحن لا نبيع معلوماتك الشخصية ولا نشاركها مع أطراف ثالثة، باستثناء:</p>
+        <ul id="p3list">
+          <li>عند الحصول على موافقتك الصريحة</li>
+          <li>عند الاقتضاء القانوني أو بأمر قضائي</li>
+          <li>مع مزودي الخدمات التقنية (مثل Firebase) وفق سياسات خصوصية صارمة</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٤</div>
+        <div class="section-title" id="p4t">أمان البيانات</div>
+      </div>
+      <div class="section-body">
+        <ul id="p4list">
+          <li>تشفير جميع البيانات أثناء النقل والتخزين عبر Firebase</li>
+          <li>تشفير كلمات المرور باستخدام تقنيات التشفير الحديثة</li>
+          <li>تقييد وصول الفريق إلى البيانات الشخصية</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٥</div>
+        <div class="section-title" id="p5t">حقوقك</div>
+      </div>
+      <div class="section-body">
+        <ul id="p5list">
+          <li>طلب الاطلاع على بياناتك الشخصية المحفوظة لدينا</li>
+          <li>طلب تعديل أي معلومات غير دقيقة</li>
+          <li>طلب حذف حسابك وجميع بياناتك نهائياً</li>
+          <li>سحب موافقتك على معالجة بياناتك</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ الشروط والأحكام ══ -->
+  <div class="tab-content" id="content-terms">
+
+    <div class="intro" id="terms-intro">
+      باستخدامك لتطبيق عزيمة، فإنك توافق على الالتزام بالشروط والأحكام التالية. يُرجى قراءتها بعناية.
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">١</div>
+        <div class="section-title" id="t1t">أهلية الاستخدام</div>
+      </div>
+      <div class="section-body">
+        <ul id="t1list">
+          <li>يجب أن يكون عمرك ١٨ سنة أو أكثر لاستخدام التطبيق</li>
+          <li>يجب تقديم معلومات صحيحة ودقيقة عند التسجيل</li>
+          <li>أنت مسؤول عن الحفاظ على سرية بيانات حسابك</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٢</div>
+        <div class="section-title" id="t2t">قواعد الاستخدام</div>
+      </div>
+      <div class="section-body">
+        <p id="t2intro">يلتزم المستخدم بعدم:</p>
+        <ul id="t2list">
+          <li>نشر معلومات مضللة أو كاذبة عن مشروعه أو عن نفسه</li>
+          <li>انتهاك حقوق الملكية الفكرية للآخرين</li>
+          <li>استخدام المنصة لأغراض احتيالية أو غير قانونية</li>
+          <li>نشر محتوى مسيء أو تحرشي أو عدائي</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٣</div>
+        <div class="section-title" id="t3t">الخدمات المدفوعة</div>
+      </div>
+      <div class="section-body">
+        <ul id="t3list">
+          <li>العلامة الزرقاء: تُمنح مقابل رسوم محددة وتخضع للمراجعة والموافقة</li>
+          <li>ترويج المشاريع والمنشورات: خدمة مدفوعة تخضع لشروط إضافية</li>
+          <li>لا يُعاد أي مبلغ مدفوع بعد تفعيل الخدمة إلا في حالات استثنائية</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٤</div>
+        <div class="section-title" id="t4t">إخلاء المسؤولية</div>
+      </div>
+      <div class="section-body">
+        <p id="t4intro">عزيمة منصة وسيطة فقط، وهي غير مسؤولة عن:</p>
+        <ul id="t4list">
+          <li>أي اتفاقيات أو عقود تُبرم بين المستخدمين خارج المنصة</li>
+          <li>دقة المعلومات المنشورة من قِبل المستخدمين</li>
+          <li>أي خسائر مالية أو تجارية ناتجة عن التعاملات بين المستخدمين</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٥</div>
+        <div class="section-title" id="t5t">تعديل الشروط</div>
+      </div>
+      <div class="section-body">
+        <p id="t5body">تحتفظ عزيمة بالحق في تعديل هذه الشروط في أي وقت. سيتم إخطارك بأي تغييرات جوهرية عبر التطبيق أو البريد الإلكتروني.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ حول التطبيق ══ -->
+  <div class="tab-content" id="content-about">
+
+    <div class="intro" id="about-intro">
+      عزيمة منصة رقمية تهدف إلى تمكين رواد الأعمال في السوق العربي من إيجاد الشركاء والمستثمرين المناسبين.
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">١</div>
+        <div class="section-title" id="a1t">رؤيتنا</div>
+      </div>
+      <div class="section-body">
+        <p id="a1body">نؤمن بأن كل فكرة ريادية تستحق الفرصة، وأن المجتمع العربي يمتلك طاقات إبداعية تحتاج فقط إلى البيئة المناسبة للنمو. عزيمة هي تلك البيئة.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٢</div>
+        <div class="section-title" id="a2t">ما الذي يقدمه التطبيق؟</div>
+      </div>
+      <div class="section-body">
+        <ul id="a2list">
+          <li>نشر المشاريع والأفكار الريادية أمام مجتمع واسع</li>
+          <li>البحث عن شركاء ومستثمرين في نفس المجال</li>
+          <li>غرف نقاش تعاونية مع نظام إدارة مهام</li>
+          <li>صفحة الخبرات لمشاركة التجارب والدروس</li>
+          <li>أدوات ترويج وعلامة التحقق للحسابات الموثوقة</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٣</div>
+        <div class="section-title" id="a3t">المجالات المتاحة</div>
+      </div>
+      <div class="section-body">
+        <ul id="a3list">
+          <li>تطوير المواقع والتطبيقات</li>
+          <li>التسويق الرقمي</li>
+          <li>التصميم وتجربة المستخدم</li>
+          <li>الأعمال والاستثمار</li>
+          <li>التقنية والابتكار وغيرها</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">٤</div>
+        <div class="section-title" id="a4t">التواصل معنا</div>
+      </div>
+      <div class="section-body">
+        <p id="a4body">نرحب بآرائك ومقترحاتك. يمكنك التواصل معنا عبر قسم الدعم داخل التطبيق أو عبر حساباتنا على منصات التواصل الاجتماعي.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <span id="footerText">جميع الحقوق محفوظة © 2025</span> &nbsp;·&nbsp; <strong>Azima عزيمة</strong> &nbsp;·&nbsp;
+  <a href="/" id="footerLink">العودة للصفحة الرئيسية</a>
+</footer>
+
+<script>
+  const T = {
+    ar: {
+      dir:'rtl', lang:'ar', langBtn:'EN 🌐',
+      badge:'🔒 \u00a0الخصوصية والقانونية',
+      pageTitle:'سياسة الخصوصية والشروط',
+      pageDate:'آخر تحديث: مارس 2025',
+      tabs: ['سياسة الخصوصية','الشروط والأحكام','حول التطبيق'],
+      'privacy-intro':'تصف سياسة الخصوصية هذه كيفية جمع تطبيق عزيمة للمعلومات الشخصية واستخدامها وحمايتها عند استخدامك للتطبيق.',
+      p1t:'المعلومات التي نجمعها',
+      p1list:['الاسم الكامل وعنوان البريد الإلكتروني','كلمة المرور (مشفّرة ولا يمكن لأحد الاطلاع عليها)','صورة الملف الشخصي (اختياري)','الموقع الجغرافي (اختياري)','الاهتمامات والتخصصات المهنية','المشاريع والأفكار التي تنشرها على المنصة','المحادثات داخل غرف النقاش'],
+      p2t:'كيف نستخدم معلوماتك',
+      p2list:['إنشاء حسابك وتخصيص تجربتك على المنصة','عرض مشاريعك للمستخدمين المهتمين','تمكين التواصل بين أصحاب المشاريع والشركاء والمستثمرين','إرسال إشعارات تخص نشاطك على المنصة','تحسين خدماتنا وتطوير التطبيق'],
+      p3t:'مشاركة المعلومات', p3intro:'نحن لا نبيع معلوماتك الشخصية ولا نشاركها مع أطراف ثالثة، باستثناء:',
+      p3list:['عند الحصول على موافقتك الصريحة','عند الاقتضاء القانوني أو بأمر قضائي','مع مزودي الخدمات التقنية (مثل Firebase) وفق سياسات خصوصية صارمة'],
+      p4t:'أمان البيانات',
+      p4list:['تشفير جميع البيانات أثناء النقل والتخزين عبر Firebase','تشفير كلمات المرور باستخدام تقنيات التشفير الحديثة','تقييد وصول الفريق إلى البيانات الشخصية'],
+      p5t:'حقوقك',
+      p5list:['طلب الاطلاع على بياناتك الشخصية المحفوظة لدينا','طلب تعديل أي معلومات غير دقيقة','طلب حذف حسابك وجميع بياناتك نهائياً','سحب موافقتك على معالجة بياناتك'],
+      'terms-intro':'باستخدامك لتطبيق عزيمة، فإنك توافق على الالتزام بالشروط والأحكام التالية.',
+      t1t:'أهلية الاستخدام',
+      t1list:['يجب أن يكون عمرك ١٨ سنة أو أكثر لاستخدام التطبيق','يجب تقديم معلومات صحيحة ودقيقة عند التسجيل','أنت مسؤول عن الحفاظ على سرية بيانات حسابك'],
+      t2t:'قواعد الاستخدام', t2intro:'يلتزم المستخدم بعدم:',
+      t2list:['نشر معلومات مضللة أو كاذبة عن مشروعه أو عن نفسه','انتهاك حقوق الملكية الفكرية للآخرين','استخدام المنصة لأغراض احتيالية أو غير قانونية','نشر محتوى مسيء أو تحرشي أو عدائي'],
+      t3t:'الخدمات المدفوعة',
+      t3list:['العلامة الزرقاء: تُمنح مقابل رسوم محددة وتخضع للمراجعة والموافقة','ترويج المشاريع والمنشورات: خدمة مدفوعة تخضع لشروط إضافية','لا يُعاد أي مبلغ مدفوع بعد تفعيل الخدمة إلا في حالات استثنائية'],
+      t4t:'إخلاء المسؤولية', t4intro:'عزيمة منصة وسيطة فقط، وهي غير مسؤولة عن:',
+      t4list:['أي اتفاقيات أو عقود تُبرم بين المستخدمين خارج المنصة','دقة المعلومات المنشورة من قِبل المستخدمين','أي خسائر مالية أو تجارية ناتجة عن التعاملات بين المستخدمين'],
+      t5t:'تعديل الشروط', t5body:'تحتفظ عزيمة بالحق في تعديل هذه الشروط في أي وقت. سيتم إخطارك بأي تغييرات جوهرية عبر التطبيق.',
+      'about-intro':'عزيمة منصة رقمية تهدف إلى تمكين رواد الأعمال في السوق العربي من إيجاد الشركاء والمستثمرين المناسبين.',
+      a1t:'رؤيتنا', a1body:'نؤمن بأن كل فكرة ريادية تستحق الفرصة، وأن المجتمع العربي يمتلك طاقات إبداعية تحتاج فقط إلى البيئة المناسبة للنمو. عزيمة هي تلك البيئة.',
+      a2t:'ما الذي يقدمه التطبيق؟',
+      a2list:['نشر المشاريع والأفكار الريادية أمام مجتمع واسع','البحث عن شركاء ومستثمرين في نفس المجال','غرف نقاش تعاونية مع نظام إدارة مهام','صفحة الخبرات لمشاركة التجارب والدروس','أدوات ترويج وعلامة التحقق للحسابات الموثوقة'],
+      a3t:'المجالات المتاحة',
+      a3list:['تطوير المواقع والتطبيقات','التسويق الرقمي','التصميم وتجربة المستخدم','الأعمال والاستثمار','التقنية والابتكار وغيرها'],
+      a4t:'التواصل معنا', a4body:'نرحب بآرائك ومقترحاتك. يمكنك التواصل معنا عبر قسم الدعم داخل التطبيق.',
+      footerText:'جميع الحقوق محفوظة © 2025',
+      footerLink:'العودة للصفحة الرئيسية'
+    },
+    en: {
+      dir:'ltr', lang:'en', langBtn:'عربي 🌐',
+      badge:'🔒  Privacy & Legal',
+      pageTitle:'Privacy Policy & Terms',
+      pageDate:'Last updated: March 2025',
+      tabs:['Privacy Policy','Terms & Conditions','About'],
+      'privacy-intro':'This Privacy Policy describes how Azima collects, uses, and protects your personal information when you use the app.',
+      p1t:'Information We Collect',
+      p1list:['Full name and email address','Password (encrypted, never visible to anyone)','Profile picture (optional)','Location (optional)','Interests and professional specializations','Projects and ideas you post on the platform','Conversations inside discussion rooms'],
+      p2t:'How We Use Your Information',
+      p2list:['Creating your account and personalizing your experience','Showing your projects to interested users','Enabling communication between project owners, partners, and investors','Sending notifications related to your activity','Improving our services and developing the app'],
+      p3t:'Sharing Your Information', p3intro:'We do not sell or share your personal information with third parties, except:',
+      p3list:['With your explicit consent','When required by law or court order','With technical service providers (e.g. Firebase) under strict privacy policies'],
+      p4t:'Data Security',
+      p4list:['All data is encrypted in transit and at rest via Firebase','Passwords are encrypted using modern encryption technologies','Team access to personal data is strictly limited'],
+      p5t:'Your Rights',
+      p5list:['Request access to your personal data stored with us','Request correction of any inaccurate information','Request permanent deletion of your account and all data','Withdraw your consent to data processing'],
+      'terms-intro':'By using Azima, you agree to comply with the following Terms and Conditions. Please read them carefully.',
+      t1t:'Eligibility',
+      t1list:['You must be 18 years or older to use the app','You must provide accurate and truthful information when registering','You are responsible for maintaining the confidentiality of your account'],
+      t2t:'Usage Rules', t2intro:'Users agree not to:',
+      t2list:['Post misleading or false information about themselves or their projects','Violate the intellectual property rights of others','Use the platform for fraudulent or illegal purposes','Post offensive, harassing, or hostile content'],
+      t3t:'Paid Services',
+      t3list:['Verified Badge: granted for a specified fee and subject to review and approval','Project and post promotion: paid service subject to additional terms','No refunds after service activation except in exceptional circumstances'],
+      t4t:'Disclaimer', t4intro:'Azima is an intermediary platform only and is not responsible for:',
+      t4list:['Any agreements or contracts made between users outside the platform','The accuracy of information posted by users','Any financial or commercial losses resulting from transactions between users'],
+      t5t:'Modifications', t5body:'Azima reserves the right to modify these terms at any time. You will be notified of any material changes via the app or email.',
+      'about-intro':'Azima is a digital platform designed to empower entrepreneurs in the Arab market to find the right partners and investors.',
+      a1t:'Our Vision', a1body:'We believe every entrepreneurial idea deserves a chance, and that the Arab community has creative energies that only need the right environment to grow. Azima is that environment.',
+      a2t:'What Does the App Offer?',
+      a2list:['Post entrepreneurial projects and ideas to a wide community','Find partners and investors in the same field','Collaborative discussion rooms with task management','Experiences page for sharing journeys and lessons','Promotion tools and a verified badge for trusted accounts'],
+      a3t:'Available Fields',
+      a3list:['Web and app development','Digital marketing','Design and user experience','Business and investment','Technology and innovation, and more'],
+      a4t:'Contact Us', a4body:'We welcome your feedback and suggestions. You can reach us through the support section in the app or via our social media accounts.',
+      footerText:'All rights reserved © 2025',
+      footerLink:'Back to Home'
+    }
+  };
+
+  let lang = 'ar';
+  let activeTab = 'privacy';
+
+  function showTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('content-' + tab).classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+    activeTab = tab;
+  }
+
+  function setList(id, items) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = items.map(i => '<li>' + i + '</li>').join('');
+  }
+
+  function toggleLang() {
+    lang = lang === 'ar' ? 'en' : 'ar';
+    applyLang();
+  }
+
+  function applyLang() {
+    const t = T[lang];
+    document.documentElement.setAttribute('dir', t.dir);
+    document.documentElement.setAttribute('lang', t.lang);
+    document.getElementById('langBtn').textContent = t.langBtn;
+    document.getElementById('badge').innerHTML = t.badge;
+    document.getElementById('pageTitle').textContent = t.pageTitle;
+    document.getElementById('pageDate').textContent = t.pageDate;
+
+    // tabs
+    const tabIds = ['privacy','terms','about'];
+    tabIds.forEach((id, i) => {
+      document.getElementById('tab-' + id).textContent = t.tabs[i];
+    });
+
+    // privacy
+    document.getElementById('privacy-intro').textContent = t['privacy-intro'];
+    document.getElementById('p1t').textContent = t.p1t; setList('p1list', t.p1list);
+    document.getElementById('p2t').textContent = t.p2t; setList('p2list', t.p2list);
+    document.getElementById('p3t').textContent = t.p3t;
+    document.getElementById('p3intro').textContent = t.p3intro; setList('p3list', t.p3list);
+    document.getElementById('p4t').textContent = t.p4t; setList('p4list', t.p4list);
+    document.getElementById('p5t').textContent = t.p5t; setList('p5list', t.p5list);
+
+    // terms
+    document.getElementById('terms-intro').textContent = t['terms-intro'];
+    document.getElementById('t1t').textContent = t.t1t; setList('t1list', t.t1list);
+    document.getElementById('t2t').textContent = t.t2t;
+    document.getElementById('t2intro').textContent = t.t2intro; setList('t2list', t.t2list);
+    document.getElementById('t3t').textContent = t.t3t; setList('t3list', t.t3list);
+    document.getElementById('t4t').textContent = t.t4t;
+    document.getElementById('t4intro').textContent = t.t4intro; setList('t4list', t.t4list);
+    document.getElementById('t5t').textContent = t.t5t;
+    document.getElementById('t5body').textContent = t.t5body;
+
+    // about
+    document.getElementById('about-intro').textContent = t['about-intro'];
+    document.getElementById('a1t').textContent = t.a1t;
+    document.getElementById('a1body').textContent = t.a1body;
+    document.getElementById('a2t').textContent = t.a2t; setList('a2list', t.a2list);
+    document.getElementById('a3t').textContent = t.a3t; setList('a3list', t.a3list);
+    document.getElementById('a4t').textContent = t.a4t;
+    document.getElementById('a4body').textContent = t.a4body;
+
+    // footer
+    document.getElementById('footerText').textContent = t.footerText;
+    document.getElementById('footerLink').textContent = t.footerLink;
+  }
+</script>
+</body>
+</html>
